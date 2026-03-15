@@ -1,10 +1,11 @@
 <template>
-    <div class="w-full h-screen p-10 flex flex-col justify-around">
-        test
-    </div>
+    <GameExplanation></GameExplanation>
+    <ParamInfo></ParamInfo>
 </template>
 
 <script setup lang="ts">
+import GameExplanation from '@/components/GameExplanation.vue';
+import ParamInfo from '@/components/ParamInfo.vue';
 import { getTheme } from '@/store/functions'
 import { watch } from 'vue'
 import { themeObject } from '@/store/variable_storage'
@@ -16,6 +17,4 @@ watch(() => theme.value, () => {
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -8,11 +8,15 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { watch } from 'vue'
+import { watch, onMounted } from 'vue'
 import { getHotspotData } from '@/store/functions'
 import { hotspotData } from '@/store/variable_storage'
 
 const route = useRoute()
+
+onMounted(() => {
+    getHotspotData(route.params.borough.toString())
+})
 
 watch(() => route.params.borough, () => {
     getHotspotData(route.params.borough.toString())
