@@ -8,7 +8,6 @@
         <router-link to="/play/3" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Brooklyn </router-link>
         <router-link to="/play/4" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Queens </router-link>
         <router-link to="/play/5" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Staten Island </router-link>
-        <router-link to="/" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Back to Home </router-link>
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <StreakBar></StreakBar>
+    <BottomBar></BottomBar>
     <div>
         {{ route.params.borough }}
         {{  hotspotData }}
@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import StreakBar from '@/components/StreakBar.vue'
+import BottomBar from '@/components/BottomBar.vue'
 import { useRoute } from 'vue-router'
 import { watch, onMounted } from 'vue'
 import { getHotspotData } from '@/store/functions'
