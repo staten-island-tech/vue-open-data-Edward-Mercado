@@ -1,5 +1,5 @@
 <template>
-  <div :class="themeObject.bg" class="w-full h-screen p-10">
+  <div :class="themeObject.bg" class="w-full h-[200%] p-10">
     <theme-buttons @changeTheme="(themeArg) => theme = themeArg"></theme-buttons>
     <h1 :class="themeObject.color_1" class='saira-stencil-one-title unica-one-regular text-7xl text-center'>GOTTA SPOT A HOTSPOT (uh)</h1>
     <menu-select></menu-select>
