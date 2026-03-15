@@ -18,7 +18,7 @@ themeObject.value = getTheme(theme.value)
 
 watch(() => theme.value, () => {
     themeObject.value = getTheme(theme.value)
-    console.log(themeObject.value)
+    localStorage.setItem("theme", theme.value)
 })
 
 </script>

@@ -10,51 +10,53 @@ export interface responseItem {
     borocode: string,
 }
 
+export const streak = ref<number>(parseInt(localStorage.getItem("streak") || "0") || 0)
+
 export const themes: 
 Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; button_1: string[]; button_2: string[]; outline_1: string[] }> = {
-    dark: {
-      bg: ['bg-linear-to-tr', 'from-black', 'to-purple-950'],
-      bg_2: ['bg-purple-100'],
-      color_1: ['text-white'],
-      color_2: ['text-purple-100'],
-      color_3: ['text-pink-100'],
-      color_4: ['text-purple-300'],
-      color_5: ['text-purple-900'],
-      color_6: ['text-indigo-800'],
-      color_7: ['text-indigo-900'],
-      button_1: ['bg-purple-100', 'hover:bg-purple-300', 'btn'],
-      button_2: ['bg-purple-800', 'hover:bg-purple-600', 'btn'],
-      outline_1: ['border-purple-100', 'border-4']
-    },
-    light: {
-      bg: ['bg-linear-to-tr', 'from-cyan-300', 'to-blue-100'],
-      bg_2: ['bg-blue-950'],
-      color_1: ['text-black'],
-      color_2: ['text-blue-950'],
-      color_3: ['text-blue-900'],
-      color_4: ['text-cyan-900'],
-      color_5: ['text-cyan-100'],
-      color_6: ['text-sky-200'],
-      color_7: ['text-sky-300'],
-      button_1: ['bg-indigo-950', 'hover:bg-blue-800', 'btn'],
-      button_2: ['bg-cyan-700', 'hover:bg-cyan-500', 'btn'],
-      outline_1: ['border-blue-950', 'border-4']
-    },
-    sunset: {
-      bg: ['bg-linear-to-tr', 'from-pink-600', 'to-yellow-400'],
-      bg_2: ['bg-rose-950'],
-      color_1: ['text-black'],
-      color_2: ['text-rose-950'],
-      color_3: ['text-rose-900'],
-      color_4: ['text-rose-800'],
-      color_5: ['text-white'],
-      color_6: ['text-orange-400'],
-      color_7: ['text-yellow-300'],
-      button_1: ['bg-rose-950', 'hover:bg-rose-800', 'btn'],
-      button_2: ['bg-orange-700', 'hover:bg-orange-500', 'btn'],
-      outline_1: ['border-rose-950', 'border-4']
-    },
-  }
+  dark: {
+    bg: ['bg-linear-to-tr', 'from-black', 'to-purple-950'],
+    bg_2: ['bg-purple-300'],
+    color_1: ['text-white'],
+    color_2: ['text-purple-100'],
+    color_3: ['text-pink-100'],
+    color_4: ['text-purple-300'],
+    color_5: ['text-purple-900'],
+    color_6: ['text-indigo-800'],
+    color_7: ['text-indigo-900'],
+    button_1: ['bg-purple-100', 'hover:bg-purple-300', 'active:bg-purple-600', 'active:translate-y-0.5', 'transition-all', 'duration-150', 'ease-in-out', 'btn'],
+    button_2: ['bg-purple-800', 'hover:bg-purple-600', 'active:bg-purple-400', 'active:translate-y-0.5', 'transition-all', 'duration-150', 'ease-in-out', 'btn'],
+    outline_1: ['border-purple-100', 'border-4']
+  },
+  light: {
+    bg: ['bg-linear-to-tr', 'from-cyan-300', 'to-blue-100'],
+    bg_2: ['bg-blue-950'],
+    color_1: ['text-black'],
+    color_2: ['text-blue-950'],
+    color_3: ['text-blue-900'],
+    color_4: ['text-cyan-900'],
+    color_5: ['text-cyan-100'],
+    color_6: ['text-sky-200'],
+    color_7: ['text-sky-300'],
+    button_1: ['bg-indigo-950', 'hover:bg-blue-800', 'active:bg-blue-600', 'active:translate-y-0.5', 'transition-all', 'duration-150', 'ease-in-out', 'btn'],
+    button_2: ['bg-cyan-700', 'hover:bg-cyan-500', 'active:bg-cyan-300', 'active:translate-y-0.5', 'transition-all', 'duration-150', 'ease-in-out', 'btn'],
+    outline_1: ['border-blue-950', 'border-4']
+  },
+  sunset: {
+    bg: ['bg-linear-to-tr', 'from-pink-600', 'to-yellow-400'],
+    bg_2: ['bg-rose-950'],
+    color_1: ['text-black'],
+    color_2: ['text-rose-950'],
+    color_3: ['text-rose-900'],
+    color_4: ['text-rose-800'],
+    color_5: ['text-white'],
+    color_6: ['text-orange-400'],
+    color_7: ['text-yellow-300'],
+    button_1: ['bg-rose-950', 'hover:bg-rose-800', 'active:bg-rose-600', 'active:translate-y-0.5', 'transition-all', 'duration-150', 'ease-in-out', 'btn'],
+    button_2: ['bg-orange-700', 'hover:bg-orange-500', 'active:bg-orange-300', 'active:translate-y-0.5', 'transition-all', 'duration-150', 'ease-in-out', 'btn'],
+    outline_1: ['border-rose-950', 'border-4']
+  },
+}
 
 export interface themeTemplate {
     bg: string[],
@@ -71,7 +73,7 @@ export interface themeTemplate {
     outline_1: string[],
 }
 
-export const theme = ref<string>("light")
+export const theme = ref<string>(localStorage.getItem("theme") || "light")
 
 export const themeObject = ref<themeTemplate>({
     bg: [],
