@@ -12,6 +12,10 @@ const router = createRouter({
     'path': '/play/:borough',
     'name': "borough-view",
     "component": BoroughGame
+  },{
+    'path': '/secret/supersecretpath',
+    'name': "hi-mr-whalen",
+    "component": BoroughGame
   }],
 })
 

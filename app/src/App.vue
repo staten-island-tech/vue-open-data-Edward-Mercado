@@ -1,7 +1,8 @@
 <template>
   <div :class="themeObject.bg" class="w-full h-screen p-10">
-    <menu-buttons @changeTheme="(themeArg) => theme = themeArg"></menu-buttons>
+    <theme-buttons @changeTheme="(themeArg) => theme = themeArg"></theme-buttons>
     <h1 :class="themeObject.color_1" class='saira-stencil-one-title unica-one-regular text-7xl text-center'>GOTTA SPOT A HOTSPOT (uh)</h1>
+    <menu-select></menu-select>
     <router-view></router-view>
   </div>
 </template>
@@ -10,7 +11,8 @@
 import { getTheme } from '@/store/functions'
 import { watch } from 'vue'
 import { theme, themeObject } from '@/store/variable_storage'
-import MenuButtons from './components/MenuButtons.vue'
+import ThemeButtons from './components/ThemeButtons.vue'
+import MenuSelect from '@/components/MenuSelect.vue'
 
 themeObject.value = getTheme(theme.value)
 
