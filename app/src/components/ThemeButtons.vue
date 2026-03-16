@@ -1,6 +1,6 @@
 <template>
     <div class="fab fixed bottom-[1%] left-3 flex flex-row items-center">
-        <div tabindex="0" role="button" :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center">
+        <div tabindex="0" role="button" :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-5 active:-rotate-30 duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 :class="themeObject.color_6" class="w-full h-full fill-current">
                 <path
@@ -8,7 +8,7 @@
             </svg>
         </div>
 
-        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center"
+        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10"
             @click="$emit('changeTheme', 'light')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             :class="themeObject.color_6"
@@ -18,7 +18,7 @@
             </svg>
         </button>
 
-        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center"
+        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10"
             @click="$emit('changeTheme', 'dark')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             :class="themeObject.color_6"
@@ -27,7 +27,7 @@
             </svg>
         </button>
 
-        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center"
+        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10"
             @click="$emit('changeTheme', 'sunset')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             :class="themeObject.color_6"

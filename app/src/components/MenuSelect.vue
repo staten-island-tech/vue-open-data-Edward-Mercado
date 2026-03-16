@@ -3,11 +3,11 @@
         <h2 class="min-w-full saira-stencil-one-subtitle text-center text-3xl" :class="themeObject.color_6">
             GAME SELECTION SCREEN
         </h2>
-        <router-link to="/play/1" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Manhattan </router-link>
-        <router-link to="/play/2" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> The Bronx </router-link>
-        <router-link to="/play/3" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Brooklyn </router-link>
-        <router-link to="/play/4" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Queens </router-link>
-        <router-link to="/play/5" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl"> Staten Island </router-link>
+        <router-link to="/play/1" :class="[themeObject.button_2]" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Manhattan </router-link>
+        <router-link to="/play/2" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> The Bronx </router-link>
+        <router-link to="/play/3" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Brooklyn </router-link>
+        <router-link to="/play/4" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Queens </router-link>
+        <router-link to="/play/5" :class="themeObject.button_2" class="lexend-deca min-w-50 m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Staten Island </router-link>
     </div>
 </template>
 

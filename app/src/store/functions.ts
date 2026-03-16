@@ -1,7 +1,6 @@
 const appToken = import.meta.env.VITE_appToken
 
-import { ApiResponse, hotspotData, responseItem } from "./variable_storage"
-import { themes } from './variable_storage'
+import { ApiResponse, hotspotData, responseItem, themes, testableParams } from "./variable_storage"
 
 export function makePieChart() {
 
@@ -38,4 +37,12 @@ export function getTheme(theme:string) {
     if(themes[theme]) {
         return themes[theme]
     } return themes['light']
+}
+
+export function randomInt(min:number, max:number) {
+    return min + Math.floor((max-min)*(Math.random()))
+}
+
+export function getRandomParam() {
+    return testableParams[randomInt(0, testableParams.length)]
 }

@@ -2,7 +2,7 @@
     <BottomBar></BottomBar>
     <div>
         {{ route.params.borough }}
-        {{  hotspotData }}
+        {{ getRandomParam() }}
     </div>
 </template>
 
@@ -11,7 +11,8 @@ import BottomBar from '@/components/BottomBar.vue'
 import { useRoute } from 'vue-router'
 import { watch, onMounted } from 'vue'
 import { getHotspotData } from '@/store/functions'
-import { hotspotData } from '@/store/variable_storage'
+import { getRandomParam } from '@/store/functions'
+// import { hotspotData } from '@/store/variable_storage'
 
 const route = useRoute()
 

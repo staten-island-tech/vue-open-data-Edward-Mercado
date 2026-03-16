@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-row-reverse fixed right-3 w-[13%] bottom-[1%]">
         <router-link to="/" :class="[themeObject.bg_2, themeObject.outline_1, themeObject.button_1]"
-            class="flex items-center justify-center rounded-full w-12 h-12 mx-2 p-[2%]">
+            class="flex items-center justify-center rounded-full min-w-12 min-h-12 mx-2 p-[2%] hover:rotate-5 active:rotate-30 duration-200">
             <svg :class="themeObject.color_6" class="w-full h-full" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -11,7 +11,7 @@
             </svg>
         </router-link>
         <button @click="resetStreak()" :class="[themeObject.bg_2, themeObject.outline_1, themeObject.button_1]"
-            class="flex items-center justify-center rounded-full w-12 h-12 mx-2 p-[2%]">
+            class="flex items-center justify-center rounded-full min-w-12 min-h-12 mx-2 p-[2%] hover:rotate-5 active:rotate-30 duration-200">
             <svg :class="themeObject.color_6" class="w-full h-full" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
