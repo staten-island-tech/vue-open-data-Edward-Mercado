@@ -3,7 +3,7 @@
         <h2 class="min-w-full saira-stencil-one-subtitle text-center text-3xl" :class="themeObject.color_6">
             GAME SELECTION SCREEN
         </h2>
-        <router-link to="/play/1" :class="[themeObject.button_2]" class="lexend-deca min-w-50 h-10 flex items-center justify-center m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Manhattan </router-link>
+        <router-link to="/play/1" :class="themeObject.button_2" class="lexend-deca min-w-50 h-10 flex items-center justify-center m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Manhattan </router-link>
         <router-link to="/play/2" :class="themeObject.button_2" class="lexend-deca min-w-50 h-10 flex items-center justify-center m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> The Bronx </router-link>
         <router-link to="/play/3" :class="themeObject.button_2" class="lexend-deca min-w-50 h-10 flex items-center justify-center m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Brooklyn </router-link>
         <router-link to="/play/4" :class="themeObject.button_2" class="lexend-deca min-w-50 h-10 flex items-center justify-center m-3 text-xl rounded-3xl text-center hover:-translate-y-0.5 active:translate-y-0.5 duration-150"> Queens </router-link>
@@ -13,9 +13,6 @@
 
 <script setup lang="ts">
 import { themeObject } from '@/store/variable_storage';
-
-
-
 </script>
 
 <style scoped>

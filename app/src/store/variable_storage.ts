@@ -38,7 +38,8 @@ export interface testableParamTemplate {
 
 export interface questionChoice {
     param: testableParamTemplate,
-    tested_value: (string | number)
+    tested_value: (string | number),
+    amount: number
 }
 
 export interface questionData {
@@ -161,11 +162,3 @@ export const testableParams:testableParamTemplate[] = [
     round: true,
     possible_values: [73.7, 73.8, 73.9, 74.0, 74.1, 74.2, 74.3]
 }]
-
-export function filteredToNumberValid(data:any[], filter:testableParamTemplate, targetValue:(string | number)) {
-    if(!filter.round) {
-        return data.filter((hotspot) => hotspot[filter.name] === targetValue).length
-    } else {
-        return data.filter((hotspot) => Math.round(hotspot[filter.name]*10)/10 === targetValue).length
-    }
-}
