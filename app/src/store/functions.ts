@@ -1,7 +1,9 @@
 const appToken = import.meta.env.VITE_appToken
 
 import { ApiResponse, hotspotData, responseItem, themes, testableParams, 
-testableParamTemplate, questionChoice, questionData, themeObject } from "./variable_storage"
+testableParamTemplate, questionChoice, questionData, themeObject, streak, currentQuestion } from "./variable_storage"
+
+import { reactive } from 'vue'
 
 export function makePieChart() {
 
@@ -75,19 +77,19 @@ export function compare(value_1:number, value_2:number) {
 export function createQuestion(data:any[], filter_1:testableParamTemplate, targetValue_1:(string | number), 
 filter_2:testableParamTemplate, targetValue_2:(string | number), borough:number) {
 
-    const questionChoice_1:questionChoice = {
+    const questionChoice_1 = reactive<questionChoice>({
         param: filter_1,
         tested_value: targetValue_1,
         amount: filteredToNumberValid(data, filter_1, targetValue_1),
         number: 1
-    }
+    })
 
-    const questionChoice_2:questionChoice = {
+    const questionChoice_2 = reactive<questionChoice>({
         param: filter_2,
         tested_value: targetValue_2,
         amount: filteredToNumberValid(data, filter_2, targetValue_2),
         number: 2
-    }
+    })
 
     const resultingQuestion:questionData = {
         borough: borough, 
@@ -96,11 +98,23 @@ filter_2:testableParamTemplate, targetValue_2:(string | number), borough:number)
         correct_answer: compare(questionChoice_1.amount, questionChoice_2.amount)
     }
 
-    return resultingQuestion
+    Object.keys(currentQuestion).forEach(key => {
+        // @ts-ignore
+        currentQuestion[key] = resultingQuestion[key]
+    })
 }
 
 export function convertNumToBorough(num:number) {
     let boroughs:string[] = ['MANHATTAN', 'THE BRONX', 'BROOKLYN', 'QUEENS', 'STATEN ISLAND']
 
     return boroughs[num-1]
+}
+
+export function changeStreak(correct:boolean) {
+    if(correct) {
+        streak.value++
+    } else {
+        streak.value = 0
+    }
+    localStorage.setItem('streak', streak.value.toString())
 }

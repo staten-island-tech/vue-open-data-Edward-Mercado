@@ -174,3 +174,12 @@ export const testableParams:testableParamTemplate[] = [
     round: true,
     possible_values: [73.7, 73.8, 73.9, 74.0, 74.1, 74.2, 74.3]
 }]
+
+export let currentQuestion = reactive<questionData>({
+    option_one: {} as questionChoice,
+    option_two: {} as questionChoice,
+    borough: 0,
+    correct_answer: 0
+} as questionData)
+
+export const showingResults = ref<boolean>(false)
