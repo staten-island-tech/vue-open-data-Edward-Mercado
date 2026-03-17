@@ -1,4 +1,4 @@
-import {ref} from 'vue'
+import {ref, reactive} from 'vue'
 
 export const hotspotData = ref<any[]>([])
 
@@ -23,6 +23,8 @@ export interface themeTemplate {
     button_1: string[],
     button_2: string[],
     outline_1: string[],
+    outline_2: string[],
+    choice: string[]
 }
 
 export interface SingleParamTemplate {
@@ -39,20 +41,22 @@ export interface testableParamTemplate {
 export interface questionChoice {
     param: testableParamTemplate,
     tested_value: (string | number),
-    amount: number
+    amount: number,
+    number: number
 }
 
 export interface questionData {
     borough: number,
     option_one: questionChoice,
     option_two: questionChoice,
+    correct_answer: number
 }
 
 export const streak = ref<number>(parseInt(localStorage.getItem("streak") || "0") || 0)
 
 export const themes: 
-Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; button_1: string[]; button_2: string[]; outline_1: string[] }> = {
-  dark: {
+Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; button_1: string[]; button_2: string[]; outline_1: string[]; outline_2: string[]; choice: string[] }> = {
+dark: {
     bg: ['bg-linear-to-tr', 'from-black', 'to-purple-950'],
     bg_2: ['bg-purple-300'],
     color_1: ['text-white'],
@@ -64,7 +68,9 @@ Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: strin
     color_7: ['text-indigo-900'],
     button_1: ['bg-purple-100', 'hover:bg-purple-300', 'active:bg-purple-600', 'transition-all', 'duration-150',],
     button_2: ['bg-purple-800', 'hover:bg-purple-600', 'active:bg-purple-400', 'transition-all', 'duration-150',],
-    outline_1: ['border-purple-100', 'border-4']
+    outline_1: ['border-purple-100', 'border-4'],
+    outline_2: ['border-purple-700', 'border-4'],
+    choice: ['hover:bg-purple-400', 'active:bg-purple-500']
   },
   light: {
     bg: ['bg-linear-to-tr', 'from-cyan-300', 'to-blue-100'],
@@ -78,7 +84,9 @@ Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: strin
     color_7: ['text-sky-300'],
     button_1: ['bg-indigo-950', 'hover:bg-blue-800', 'active:bg-blue-600', 'transition-all', 'duration-150',],
     button_2: ['bg-cyan-700', 'hover:bg-cyan-500', 'active:bg-cyan-300', 'transition-all', 'duration-150',],
-    outline_1: ['border-blue-950', 'border-4']
+    outline_1: ['border-blue-950', 'border-4'],
+    outline_2: ['border-sky-500', 'border-4'],
+    choice: ['hover:bg-blue-800', 'active:bg-sky-700']
   },
   sunset: {
     bg: ['bg-linear-to-tr', 'from-pink-600', 'to-yellow-400'],
@@ -92,13 +100,15 @@ Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: strin
     color_7: ['text-yellow-300'],
     button_1: ['bg-rose-950', 'hover:bg-rose-800', 'active:bg-rose-600', 'transition-all', 'duration-150',],
     button_2: ['bg-orange-700', 'hover:bg-orange-500', 'active:bg-orange-300', 'transition-all', 'duration-150',],
-    outline_1: ['border-rose-950', 'border-4']
+    outline_1: ['border-rose-950', 'border-4'],
+    outline_2: ['border-white', 'border-4'],
+    choice: ['hover:bg-rose-900', 'active:bg-rose-700']
   },
 }
 
 export const theme = ref<string>(localStorage.getItem("theme") || "light")
 
-export const themeObject = ref<themeTemplate>({
+export const themeObject = reactive<themeTemplate>({
     bg: [],
     bg_2: [],
     color_1: [],
@@ -110,7 +120,9 @@ export const themeObject = ref<themeTemplate>({
     color_7: [],
     button_1: [],
     button_2: [],
-    outline_1: []
+    outline_1: [],
+    outline_2: [],
+    choice: []
 })
 
 export const APIParams:SingleParamTemplate[] = [
