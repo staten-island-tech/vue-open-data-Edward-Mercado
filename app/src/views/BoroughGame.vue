@@ -65,7 +65,6 @@ function chooseOption(optionNumber: number) {
     }
     changeStreak(correct.value)
     showingResults.value = true
-    getHotspotData(route.params.borough.toString())
 }
 
 onBeforeMount(() => {
@@ -84,7 +83,7 @@ watch(() => route.params.borough, () => {
     boroughName.value = convertNumToBorough(parseInt(route.params.borough as string))
 })
 
-watch(() => hotspotData.value, () => {
+watch(() => hotspotData.value, () => { // everytime i run getHotspotData(), it will run this function, which asks the question
     let filter_1 = getRandomParam()
     let targetValue_1 = getRandomTargetVal(filter_1)
     let filter_2 = getRandomParam()
