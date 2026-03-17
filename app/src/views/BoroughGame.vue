@@ -21,12 +21,12 @@
                 <QuestionOption :inputQuestion="currentQuestion.option_two" v-if="!showingResults"
                 @chooseOption="(number) => chooseOption(number)"></QuestionOption>
             </Transition>
-            <div :class="[themeObject.bg_2, themeObject.outline_2, themeObject.choice[0]]"
-                class="absolute top-[45%] left-[47%] w-[6%] h-[10%] flex items-center justify-center rounded-full hover:scale-130 hover:-rotate-180 transition-all duration-1000">
+            <button :class="[themeObject.button_1, themeObject.outline_2, themeObject.choice[0]]"
+                class="absolute top-[45%] left-[47%] w-[6%] h-[10%] flex items-center justify-center rounded-full hover:scale-130 hover:-rotate-180 transition-all duration-1000" @click="streak = randomInt(-100, 100)" aria-label="random streak lol">
                 <h2 :class="themeObject.color_6" class="text-center w-full text-3xl lexend-deca font-black">
                     OR
                 </h2>
-            </div>
+            </button>
             <h2 :class="[themeObject.color_1, 'absolute', 'bottom-0', 'left-1', 'saira-stencil-one-subtitle', 'text-8xl', 'w-[50%]', 'text-center']"
                 class="absolute bottom-0 left-1 saira-stencil-one-subtitle text-8xl w-[50%] text-center"> ? </h2>
         </div>
@@ -52,6 +52,8 @@ import { convertNumToBorough } from '@/store/functions'
 import { changeStreak } from '@/store/functions'
 import { currentQuestion } from '@/store/variable_storage'
 import { showingResults } from '@/store/variable_storage'
+import { randomInt } from '@/store/functions'
+import { streak } from '@/store/variable_storage'
 
 const route = useRoute()
 
@@ -94,6 +96,7 @@ watch(() => hotspotData.value, () => { // everytime i run getHotspotData(), it w
     let filter_2 = getRandomParam()
     let targetValue_2 = getRandomTargetVal(filter_2)
     createQuestion(hotspotData.value, filter_1, targetValue_1, filter_2, targetValue_2, parseInt(route.params.borough as string))
+    console.log(currentQuestion)
 })
 
 </script>

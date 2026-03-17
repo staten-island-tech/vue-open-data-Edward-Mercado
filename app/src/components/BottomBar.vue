@@ -35,7 +35,7 @@
         </button>
 
         <div :class="[themeObject.bg_2, themeObject.outline_1, themeObject.outline_2]"
-            class="h-12 z-80 flex items-center justify-center rounded-2xl min-w-35">
+            class="h-12 z-80 flex items-center justify-center rounded-2xl min-w-45">
             <h2 :class="themeObject.color_6" class="saira-stencil-one-subtitle text-xl text-center"> STREAK: {{ streak }}</h2>
         </div>
     </div>
