@@ -8,7 +8,7 @@
             </svg>
         </div>
 
-        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10"
+        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10" value="light-mode" aria-label="light-mode"
             @click="$emit('changeTheme', 'light')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             :class="themeObject.color_6"
@@ -18,8 +18,8 @@
             </svg>
         </button>
 
-        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10"
-            @click="$emit('changeTheme', 'dark')">
+        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10" value="dark-mode" aria-label="dark-mode"
+        @click="$emit('changeTheme', 'dark')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             :class="themeObject.color_6"
                 class="w-full h-full fill-current">
@@ -27,7 +27,7 @@
             </svg>
         </button>
 
-        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10"
+        <button :class="themeObject.button_1" class="btn btn-xl btn-circle btn-primary flex items-center justify-center hover:-rotate-10" value="sunset-mode" aria-label="sunset-mode"
             @click="$emit('changeTheme', 'sunset')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
             :class="themeObject.color_6"
