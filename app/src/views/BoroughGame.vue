@@ -7,15 +7,20 @@
         <Transition name="result-popup">
         <QuestionResults :correct="correct" v-if="showingResults"> </QuestionResults>
         </Transition>
-
-        <div class="w-full h-[60%] flex flex-col justify-around relative">
+            <div class="w-full h-[60%] flex flex-col justify-around relative">
             <h2 :class="themeObject.color_1"
                 class="absolute top-0 right-1 saira-stencil-one-subtitle text-5xl w-[40%] text-center"> ARE THERE MORE
                 HOTSPOTS OF... </h2>
-            <QuestionOption :inputQuestion="currentQuestion.option_one"
+
+            <Transition name="question-one">
+            <QuestionOption :inputQuestion="currentQuestion.option_one" v-if="!showingResults"
                 @chooseOption="(number) => chooseOption(number)"></QuestionOption>
-            <QuestionOption :inputQuestion="currentQuestion.option_two"
+            </Transition>
+
+            <Transition name="question-two">
+                <QuestionOption :inputQuestion="currentQuestion.option_two" v-if="!showingResults"
                 @chooseOption="(number) => chooseOption(number)"></QuestionOption>
+            </Transition>
             <div :class="[themeObject.bg_2, themeObject.outline_2, themeObject.choice[0]]"
                 class="absolute top-[45%] left-[47%] w-[6%] h-[10%] flex items-center justify-center rounded-full hover:scale-130 hover:-rotate-180 transition-all duration-1000">
                 <h2 :class="themeObject.color_6" class="text-center w-full text-3xl lexend-deca font-black">
@@ -117,4 +122,65 @@ watch(() => hotspotData.value, () => { // everytime i run getHotspotData(), it w
   opacity: 0;
   transform: scale(0.8);
 }
+
+/* -------- */
+
+.question-one-enter-from {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.5)
+}
+
+.question-one-enter-active {
+    transition: all 0.5s ease-in-out;
+}
+
+.question-one-enter-to {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+}
+
+.question-one-leave-from {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+}
+
+.question-one-leave-active {
+    transition: all 2s ease-in-out;
+}
+
+.question-one-leave-to {
+    opacity: 0;
+    transform: translateY(100%) scale(0.5)
+}
+
+/* -------- */
+
+.question-two-enter-from {
+    opacity: 0;
+    transform: translateY(100%) scale(0.5)
+}
+
+.question-two-enter-active {
+    transition: all 0.5s ease-in-out;
+}
+
+.question-two-enter-to {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+}
+
+.question-two-leave-from {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+}
+
+.question-two-leave-active {
+    transition: all 2s ease-in-out;
+}
+
+.question-two-leave-to {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.5)
+}
+
 </style>
