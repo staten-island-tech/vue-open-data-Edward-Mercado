@@ -15,13 +15,8 @@ export function makeBarChart() {
 
 export async function getHotspotData(borocode:string) {
     try {
-        const response:Response = await fetch(`https://data.cityofnewyork.us/api/v3/views/yjub-udmw/query.json`,
-            {headers: {
-                "X-App-Token": appToken,
-                "Accept": "application/json"
-            }}
-        )
-
+        const response:Response = await fetch(`https://data.cityofnewyork.us/resource/yjub-udmw.json`)
+        
         if(!response.ok) {
             throw new Error(`Request failed with status ${response.status}`)
         }
