@@ -1,3 +1,5 @@
+const appToken = import.meta.env.VITE_appToken
+
 import { ApiResponse, hotspotData, responseItem, themes, testableParams, 
 testableParamTemplate, questionChoice, questionData, themeObject, streak, currentQuestion } from "./variable_storage"
 
