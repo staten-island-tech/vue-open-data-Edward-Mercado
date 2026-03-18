@@ -1,5 +1,5 @@
 <template>
-    <Bar id="results-bar" :options="chartOptions" :data="chartData" class="max-w-[47%] max-h-[60%]" />
+    <Bar aria-label="results-bar" :options="chartOptions" :data="chartData" class="max-w-[47%] max-h-[60%]" />
 </template>
 
 <script lang="ts">

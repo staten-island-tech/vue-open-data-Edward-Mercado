@@ -15,6 +15,9 @@
         <h2 :class="themeObject.color_7"  class="saira-stencil-one-title text-4xl text-center">
             {{  inputQuestion.tested_value }}
         </h2>
+        <h2 :class="themeObject.color_6"  class="saira-stencil-one-title text-md text-center italic" v-if="inputQuestion.param.round"> 
+            * Latitude/Longitude values are rounded to the nearest tenth.
+        </h2>
     </div>
 
     <div v-if="isHovered" class="absolute bottom-[-10%] w-[60%] h-[18%] flex justify-center items-center rounded-2xl" :class="[themeObject.bg, themeObject.color_1, themeObject.outline_2]"> 
