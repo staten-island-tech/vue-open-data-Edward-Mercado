@@ -24,7 +24,8 @@ export interface themeTemplate {
     button_2: string[],
     outline_1: string[],
     outline_2: string[],
-    choice: string[]
+    choice: string[],
+    chart_colors: string[]
 }
 
 export interface SingleParamTemplate {
@@ -55,7 +56,7 @@ export interface questionData {
 export const streak = ref<number>(parseInt(localStorage.getItem("streak") || "0") || 0)
 
 export const themes: 
-Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; button_1: string[]; button_2: string[]; outline_1: string[]; outline_2: string[]; choice: string[] }> = {
+Record<string, { bg: string[]; bg_2: string[]; color_1: string[]; color_2: string[]; color_3: string[]; color_4: string[]; color_5: string[]; color_6: string[]; color_7: string[]; button_1: string[]; button_2: string[]; outline_1: string[]; outline_2: string[]; choice: string[]; chart_colors: string[] }> = {
 dark: {
     bg: ['bg-linear-to-tr', 'from-black', 'to-purple-950'],
     bg_2: ['bg-purple-300'],
@@ -70,7 +71,8 @@ dark: {
     button_2: ['bg-purple-800', 'hover:bg-purple-600', 'active:bg-purple-400', 'transition-all', 'duration-150',],
     outline_1: ['border-purple-100', 'border-4'],
     outline_2: ['border-purple-700', 'border-4'],
-    choice: ['hover:bg-purple-400', 'active:bg-purple-500']
+    choice: ['hover:bg-purple-400', 'active:bg-purple-500'],
+    chart_colors: ['#ce99ff', '#bb60d6', "#fad1ff"]
   },
   light: {
     bg: ['bg-linear-to-tr', 'from-cyan-300', 'to-blue-100'],
@@ -86,7 +88,8 @@ dark: {
     button_2: ['bg-cyan-700', 'hover:bg-cyan-500', 'active:bg-cyan-300', 'transition-all', 'duration-150',],
     outline_1: ['border-blue-950', 'border-4'],
     outline_2: ['border-sky-500', 'border-4'],
-    choice: ['hover:bg-blue-800', 'active:bg-sky-700']
+    choice: ['hover:bg-blue-800', 'active:bg-sky-700'],
+    chart_colors: ['#195ab5', '#051d96', "#01093b"]
   },
   sunset: {
     bg: ['bg-linear-to-tr', 'from-pink-600', 'to-yellow-400'],
@@ -102,7 +105,8 @@ dark: {
     button_2: ['bg-orange-700', 'hover:bg-orange-500', 'active:bg-orange-300', 'transition-all', 'duration-150',],
     outline_1: ['border-rose-950', 'border-4'],
     outline_2: ['border-white', 'border-4'],
-    choice: ['hover:bg-rose-900', 'active:bg-rose-700']
+    choice: ['hover:bg-rose-900', 'active:bg-rose-700'],
+    chart_colors: ['#fff099', '#fcb1dc', "#541609"]
   },
 }
 
@@ -122,7 +126,8 @@ export const themeObject = reactive<themeTemplate>({
     button_2: [],
     outline_1: [],
     outline_2: [],
-    choice: []
+    choice: [],
+    chart_colors: []
 })
 
 export const APIParams:SingleParamTemplate[] = [
@@ -176,8 +181,16 @@ export const testableParams:testableParamTemplate[] = [
 }]
 
 export let currentQuestion = reactive<questionData>({
-    option_one: {} as questionChoice,
-    option_two: {} as questionChoice,
+    option_one: {
+        param: {
+            name: ''
+        }
+    } as questionChoice,
+    option_two: {
+        param: {
+            name: ''
+        }
+    } as questionChoice,
     borough: 0,
     correct_answer: 0
 } as questionData)
